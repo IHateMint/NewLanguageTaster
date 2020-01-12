@@ -1,5 +1,41 @@
 ## Why Scala ?
-TODO
+Scala is functional language. Function can be a parameter of other function, saving function as a variable, or function returning a function is possible.
+```
+object Timer {
+    def oncePerSecond(callback: () => Unit) {
+        while (true) { callback(); Thread sleep 1000 }
+    }
+    def timeFlies() {
+        println("time flies like an arrow")
+    }
+    def main(args: Array[String]) {
+        oncePerSecond(timeFlies)
+    }
+}
+```
+Though all will be dealt later again more precisely, `() => Unit` function type is every function that doesn't receive any parameters and returning nothing. (This is quite similar to `void` in cpp)
+
+## Basic Compile and Execution
+```
+object HelloWorld {
+    def main(args: Array[String]) {
+        println("Hello, world")
+    }
+}
+```
+To compile the example above, simply run
+```
+scalac HelloWorld.scala
+```
+This results in a few class files inside current directory. We can now find `HelloWorld.class`
+
+To execute after compiling,
+```
+scala -classpath . HelloWorld
+```
+
+## Using Scala with Java
+`java.lang` package's every classes are usable without importing.
 
 ## Variables
 `val` is immutable variable, and `var` is mutable variable.
