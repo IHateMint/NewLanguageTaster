@@ -83,6 +83,16 @@ for (rank <- output)
 }
 ```
 
+## If, Else
+```
+if (condition1) { //Something1
+}
+else if (condition2) { //Something2
+}
+else { //Something3
+}
+```
+
 ## Class
 Basic class is such as below.
 ```
@@ -148,6 +158,23 @@ object Main {
         val obj = new MyClass with SampleTrait;
     }
 }
+```
+The trait that you will most likely see, is `App`, like below.
+```
+object Students extends App {
+    if (args.length == 1) {
+        println("Student: ${args(0)}")
+    }
+    else {
+        println("No students")
+    }
+}
+```
+```
+// in
+$ scala Students Chris
+// out
+Student: Chris
 ```
 
 
