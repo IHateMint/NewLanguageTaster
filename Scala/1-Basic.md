@@ -177,4 +177,50 @@ $ scala Students Chris
 Student: Chris
 ```
 
+# Trait Traversable
+```
+object Example1 {
+    def main(args: Array[String]) {
+        val l = List(1,2,3,4,5)
+        l.foreach(n => println(n * 3))
+    }
+}
+// 3,6,9,12,15
+```
 
+```
+object Example2 {
+    def main(args: Array[String]) {
+        val x = Set(2,4,5)
+        val y = x.map(_ * 3)
+        println(y)
+    }
+}
+// Set(6,12,15)
+```
+
+```
+object Example3 {
+    def main(args: Array[String]) {
+        val a = List(List(1), List(4,5), List(8,9))
+        val b = a.flatMap(_.map(_+3))
+        println(b)
+    }
+}
+// List(4,7,8,11,12)
+```
+
+```
+object Example4 {
+    def main(args: Array[String]) {
+        val x = List(5,3,9,10)
+        val y = x.collect {
+            case z : Int if (z % 3 == 0) => z + 2
+        }
+        println(y)
+    }
+}
+// List(5,11)
+```
+
+Conversion operations `toList, toSeq, toArray, toStream, toSet, toMap, toIterable, toIndexedSeq` are [psson;e/
