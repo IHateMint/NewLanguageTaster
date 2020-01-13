@@ -108,4 +108,46 @@ object Ex {
 }
 ```
 
+## Traits
+Allowed to implement the members. Can have methods(abstract and non-abstract), and fields as its members.
+```
+trait SampleTrait
+{
+    // Abstract
+    var value: Int
+    // Concrete
+    var weight = 50
+    var height = 180
+}
+class MyClass extends SampleTrait
+{
+    var value = 14
+    override val weight = 60
+    def Display(){
+        printf("Value:%d", value);
+        printf("Weight:%d", weight);
+    }
+}
+object Main {
+    def main(args: Array[String])
+    {
+        val obj = new MyClass();
+        obj.Display();
+    }
+}
+```
+This kind of implementation is also allowed.
+```
+class MyClass{}
+trait SampleTrait {
+    println("This is a sample trait, and will be inherited directly")
+}
+object Main {
+    def main(args: Array[String])
+    {
+        val obj = new MyClass with SampleTrait;
+    }
+}
+```
+
 
